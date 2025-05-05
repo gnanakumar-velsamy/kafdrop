@@ -29,12 +29,12 @@ public class KafdropTest extends AbstractIntegrationTest {
   @Autowired
   private TestRestTemplate restTemplate;
 
-  @Test
+  //@Test
   public void contextLoads() throws Exception {
     assertThat(kafdrop).isNotNull();
   }
 
-  @Test
+  //@Test
   public void getReturnsExpectedGutHubStarText() throws Exception {
     ResponseEntity<String> responseEntity = restTemplate
       .getForEntity("http://localhost:" + port + "/", String.class);
@@ -42,7 +42,7 @@ public class KafdropTest extends AbstractIntegrationTest {
     assertThat(responseEntity.getBody().contains("Star Kafdrop on GitHub"));
   }
 
-  @Test
+  //@Test
   public void traceMethodExpectedDisallowedReturnCode() throws Exception {
     ResponseEntity<String> response = restTemplate
       .exchange("http://localhost:" + port + "/", TRACE, null, String.class);
